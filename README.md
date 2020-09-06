@@ -552,6 +552,10 @@ function fromList(list) {
 
 I've got answers to a few potential questions here, as I know some parts of this are very much *not* obvious.
 
+### Why is this all so verbose? There's got to be a way to tame this...
+
+Iterables and their iterators aren't exactly simple to implement for anything not trivial, either. Also, stream helpers [similar to what's proposed for iterators](https://github.com/tc39/proposal-iterator-helpers) are beyond the scope of this proposal.
+
 ### What happens to errors that fall out of async generators?
 
 A new "HostReportError(error)" hook would need added to address that. But in general, it just equates to an always-unhandled rejection, and the hook might be repurposed for that as well.
