@@ -621,7 +621,7 @@ There's reasons. And rather than inventing *yet another abstraction*, let's actu
 
 It's not a common need, but when it's needed, all the alternatives are far more complicated:
 
-- Backpressure tracking pretty much requires information to be propagated back, so writers don't overload their readers. For this purpose, returning a simple boolean or number of bytes it's still reading is sufficient, and beyond that, it's very difficult to overload a subscription.
+- Backpressure tracking pretty much requires information to be propagated back, so writers don't overload their readers. For this purpose, returning a simple number of bytes it's still reading is sufficient, and beyond that, it's very difficult to overload a subscription.
   - Node's `stream.write` does [iterally this very thing](https://nodejs.org/api/stream.html#stream_buffering), though it handles most the backpressure internally.
 - For things like HTTP request handling, being able to receive errors thrown by applications is really valuable and allows a *lot* of logic that would otherwise pollute server handling to be drastically simplified.
 
