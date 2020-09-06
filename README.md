@@ -630,7 +630,7 @@ It's not a common need, but when it's needed, all the alternatives are far more 
 While yes, most streams in practice might be synchronous, there are use cases for async streams, ones larger than you might expect:
 
 - HTTP server request handling could be modeled as an async stream. File system operations are almost always handled asynchronously, so it makes sense to `await` them. Also, streams can handle uncaught errors and translate them into 4xx (like "file not found") and 5xx (for most non-FS errors) responses as appropriate, with little need for the user to care. And yes, catching async exceptions is also really valuable.
-- Any stream that requires backpressure tracking and could potentially do async actions generally need async
+- Any stream that requires backpressure tracking and could potentially do async actions generally need to know when the consumer is free to process more data.
 
 ### Why do these streams support return values?
 
