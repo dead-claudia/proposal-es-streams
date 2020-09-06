@@ -225,7 +225,7 @@ try {
 
 You can also `break` from these loops, corresponding to returning `{done: true, value: undefined}` from `next` (and terminating the loop), and you can `continue` from them, too, corresponding to returning `{done: false, value: undefined}`.
 
-There would initially not be a sync-to-async adapter for streams as [there would first need to be a way to close a stream](#why-is-there-no-way-for-the-caller-to-close-streams-). However, adapters would exist for making iterables (sync and async) streamable in both ways, that'd work roughly like this:
+There would initially not be a sync-to-async adapter for streams as [there would first need to be a way to close a stream](#why-is-there-no-way-for-the-caller-to-close-streams). However, adapters would exist for making iterables (sync and async) streamable in both ways, that'd work roughly like this:
 
 ```js
 function coerceToSyncStream(value) {
