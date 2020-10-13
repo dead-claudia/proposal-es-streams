@@ -128,7 +128,7 @@ for (let foo from stream) {
 }
 
 // Async
-for await (let foo from stream) {
+for async (let foo from stream) {
   // ...
 }
 
@@ -144,7 +144,7 @@ try {
 
 > Why "from"? Streams *send* values, so the values could pretty easily be seen as being *from* that stream.
 
-The body of the loop would survive the result of the function, and things like generator `yield`s would not be permitted. However, with `for await ... from`, you can `await` from within the loop body and the `await` is from the context of that body specifically. These are all independent of the surrounding context - `for await ... from` is valid in all contexts, not just `async` contexts. Note that you can't `yield` from inside the body in async generators, and you can only `await` from inside the loop body of *async* streams - the corresponding invariants are in reverse.
+The body of the loop would survive the result of the function, and things like generator `yield`s would not be permitted. However, with `for async ... from`, you can `await` from within the loop body and the `await` is from the context of that body specifically. These are all independent of the surrounding context - `for async ... from` is valid in all contexts, not just `async` contexts. Note that you can't `yield` from inside the body in async generators, and you can only `await` from inside the loop body of *async* streams - the corresponding invariants are in reverse.
 
 It'd be roughly equivalent to the following within async functions:
 
